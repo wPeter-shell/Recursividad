@@ -1,0 +1,72 @@
+Preguntas - Código 2
+
+Pregunta  #13
+
+	1.	A -> C
+	2.	A -> B
+	3.	C -> B
+	4.	A -> C
+	5.	B -> A
+	6.	B -> C
+	7.	A -> C  El movimiento central es A -> C, que corresponde al disco más grande. Ese movimiento divide la solución en dos partes simétricas porque: 
+	•	Primero hay que mover los n-1 discos pequeños desde el origen hacia la torre auxiliar.
+	•	Luego se mueve el disco más grande al destino.
+	•	Después se vuelven a mover esos n-1 discos desde la torre auxiliar hasta el destino.
+
+Por eso la solución queda partida en dos subproblemas del mismo tamaño: mover n-1 discos antes y mover n-1 discos después.
+
+
+Pregunta #14:
+
+M(n)=2M(n-1)+1
+
+con caso base:
+
+M(1)=1
+
+Seria:
+M(n)=2M(n-1)+1
+
+M(n-1)=2M(n-2)+1
+
+Sustituyendo:
+
+M(n)=2(2M(n-2)+1)+1=2^2M(n-2)+2+1
+
+Siguiendo el patrón:
+
+M(n)=2^kM(n-k)+(2^k-1)
+
+Cuando k=n-1:
+
+M(n)=2^{n-1}M(1)+(2^{n-1}-1)
+
+Como M(1)=1:
+
+M(n)=2^{n-1}+2^{n-1}-1
+
+M(n)=2^n-1
+
+Forma cerrada
+
+M(n)=2^n-1
+
+Pregunta #15: 
+Hanoi tiene crecimiento exponencial porque para resolver el problema con n discos es obligatorio resolver dos subproblemas de tamaño n-1 y realizar además un movimiento intermedio del disco mayor. Eso produce la recurrencia M(n)=2M(n-1)+1, cuya solución es 2^n-1.
+
+La diferencia con Fibonacci es que en Hanoi no se repiten subproblemas inútilmente. En Fibonacci ingenuo, muchas llamadas vuelven a calcular los mismos valores. En cambio, en Hanoi cada llamada corresponde a una parte necesaria de la solución, ya que cada movimiento generado forma parte del proceso mínimo requerido para trasladar todos los discos respetando las reglas.
+ Pregunta #16:
+
+No existe una versión iterativa trivial que mejore la complejidad porque el verdadero costo del problema no proviene de la recursión, sino del número mínimo de movimientos necesarios para resolverlo. Aunque se cambie la implementación recursiva por una iterativa, la cantidad mínima de movimientos sigue siendo: 2^n-1
+
+Por tanto, cualquier algoritmo correcto que imprima todos los movimientos deberá realizar al menos esa cantidad de pasos. La implementación puede cambiar la forma de controlar el proceso, por ejemplo usando ciclos o una pila manual, pero no puede reducir el trabajo mínimo estructuralmente necesario del problema.  Pregunta # 17:
+
+El profesor dijo que no va  Pregunta #18:
+
+La diferencia es que imprimir exige realizar todo el trabajo del problema; contar solo requiere calcular cuántos movimientos serían necesarios.
+
+Pregunta #19:
+
+Hanoi demuestra que una recursión exponencial no siempre está mal diseñada. En este problema, el crecimiento O(2^n) no aparece por mala implementación ni por repetición innecesaria, sino porque la propia naturaleza del problema exige 2^n-1 movimientos mínimos. Es decir, incluso el algoritmo correcto y óptimo tiene crecimiento exponencial.
+
+Por eso Hanoi es un contraejemplo importante: enseña que no basta ver una complejidad exponencial para concluir que el diseño es deficiente.

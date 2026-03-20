@@ -1,0 +1,46 @@
+Preguntas - Código 2
+
+Pregunta #1
+(n = 5)
+
+fib(6) =
+|			 fib(5) =     		 |			 |			fib(4) =
+|			 |			|	        	fib(3) =
+|			 |			|			|	         	fib(2) =
+|			 |			|			|		 	|		     fib(1) =
+|			 |			|			fib(1) = 		fib(0) = 1
+|			 |			fib(2) =
+|			 fib(3) 				|— fib(2) 				|	|— fib(1)
+				| — fib(1)
+				| fib(4)
+	|
+	| —  fib(3)
+	|	|
+	|	|— fib(2)
+	|		|
+	|		|— fib(1) 	|		|— fib(0)
+	|
+	|
+	| —  fib(2)
+		|
+		|— fib(1)
+		|— fib(0)
+
+
+
+
+Pregunta #8:
+
+El costo de este algoritmo no es creciente porque recalcula varias veces lo mismo. O sea cada llamada genera 2 nuevas llamadas haciendo que se tenga que recalcular los subproblemas y asi repetidamente
+
+Pregunta #9: 
+Dentro de la llamada fib(6), se llama de nuevo a fib(4), asi tambien aparece fib(3) dentro de la rama de fib(5).
+ Pregunta #10:
+
+En la version ingenua de fibonacci, la complejidad temporal es exponencial O(2^n), ya por lo mencionada que recalcula lo mismo varias veces. Su complejidad espacial es O(n), ya que la profundidad de la recursion crece linealmente con la variable debido a la pila  de llamadas.
+En la version memorizada, se almacena los resultados de los problemas ya resueltos, evitando recalcular lo mismo varias veces como pasaba en el algoritmo. Su complejidad temporal pasa a O(n) ya que cada valor se calcula una vez y ya, su complejidad tambien es O(n), ya que se necesita una memoria adicional para almacenar resultados a demas de la pila.  Pregunta #11:
+
+Es asi por la forma en que se resuelve y almacenan los subproblemas, de arriba hacia abajo se utiliza recursion y almacenamiento para los resultados, evitando las mismas llamadas. El de abajo hacia arriba se resuelven todos los subproblemas desde los casos base hasta el problema final estilo bucle. Ambos tienen complejidad temporal O(n) ya que los subproblemas se hacen una vez y ya. Pero el de abajo hacia arriba podria ser mas rapido porque evita la pila de llamadas recursivas.  Pregunta #12:
+
+Bueno como la recursion ingenua de Fibonacci es demasiado ineficiente, usaria la de tabulacion, puesto que esta es mas optimizada aunque no se entienda a primera vista, y mas cuando el programa debe responde 100,000 consultas de fibonacci.
+

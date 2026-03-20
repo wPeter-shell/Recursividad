@@ -1,0 +1,61 @@
+Preguntas - Código 1
+
+Pregunta #1
+(n = 5)
+
+factorial(5) —— 5 * |
+			          factorial(4) = 4 * |		 							  	factorial(3) = 3 * |
+							                         	      factorial(2) = 2 * |
+													factorial(1) = 1
+
+
+Pregunta #2
+No se genera un árbol ramificado porque la llamada que se hace dentro de la función es solamente una, porque es lineal, si fuera con una llamada mas entonces ahi si es un árbol ramificado donde de cada llamada salen 2 mas hasta que se de el caso base.
+
+
+Pregunta #3
+La recurrencia temporal es T(n-1) + c,  donde (n-1) representa la recursividad de la funcion y (c) representa el trabajo que se hace siempre que es multiplicar. Su complejidad temporal es lineal porque siempre se llama de uno en uno, (n-1), solo exite una sola recursividad y porque el trabajo es constante, siempre hace lo mismo que es multiplicar.
+
+Su complejidad espacial tambien es lineal: O(n), porque la recursividad de este codigo tiene una profundiad n, ya que reduce el problema en n -1 hasta llegar a su caso base. y sus llamadas se acumulan en el stack, cuando cumple con el caso base., ahi es que hace la multiplicacion de las funciones quedadas en el stack.
+
+
+Pregunta #4
+public static long factorial(int n)
+{
+	if ( n <= 1 )
+	{
+		return 1;
+	}
+
+	long acumulacion = 1;
+
+	for ( int ind = n ; ind >= 1 ; ind -— )
+	{
+		acumulacion = acumulacion * ind;
+	}
+
+	return acumulacion;
+
+}
+
+Con esta version desaparece el costo de la pila de llamadas recursivas, haciendo que su compejidad espacia pase a O(1).
+
+
+Pregunta #5
+
+public static long factorial(int n, long acumulador)
+{
+   if ( n <= 1 )
+   {
+      return acumulador;
+   }
+
+   return factorial( n - 1, n * acumulador );
+}
+
+Java como quiera no garantiza una recursividad de cola con acumulador porque este es un lenguaje que prioriza la pila de ejecucion para propositos de depuracion. O sea sigue dejando las llamas en el stack para dejar un trazo del stack.
+
+
+Pregunta 6:
+
+Considero que seria bueno usarlo para dependiendo el caso en que nos veamos, pero puede ser preferible cuando simplifica la logica de un algoritmo o facilita su comprension, como en el caso de los arboles. Ademas de que puede dar pasa a tecnicas mas complejas como la memorizacion o tabulacion.
